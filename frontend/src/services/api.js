@@ -1,27 +1,7 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import axios from "axios";
 
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard";
+const API = axios.create({
+  baseURL: "http://localhost:5000/api",
+});
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Login />} />
-
-        <Route
-          path="/register"
-          element={<Register />}
-        />
-
-        <Route
-          path="/dashboard"
-          element={<Dashboard />}
-        />
-      </Routes>
-    </BrowserRouter>
-  );
-}
-
-export default App;
+export default API;
