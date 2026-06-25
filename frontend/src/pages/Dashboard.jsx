@@ -1,44 +1,28 @@
-function Dashboard() {
-  return (
-    <div className="min-h-screen bg-gray-100 p-8">
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-      <h1 className="text-4xl font-bold mb-8">
-        Student Dashboard
+function Dashboard() {
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      navigate("/");
+    }
+
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-gray-100 p-10">
+
+      <h1 className="text-4xl font-bold mb-6">
+        Dashboard
       </h1>
 
-      <div className="grid md:grid-cols-3 gap-6">
-
-        <div className="bg-white p-6 rounded-lg shadow">
-          <h2 className="text-xl font-semibold">
-            Subjects
-          </h2>
-
-          <p className="text-4xl mt-3">
-            0
-          </p>
-        </div>
-
-        <div className="bg-white p-6 rounded-lg shadow">
-          <h2 className="text-xl font-semibold">
-            Tasks
-          </h2>
-
-          <p className="text-4xl mt-3">
-            0
-          </p>
-        </div>
-
-        <div className="bg-white p-6 rounded-lg shadow">
-          <h2 className="text-xl font-semibold">
-            Completed
-          </h2>
-
-          <p className="text-4xl mt-3">
-            0
-          </p>
-        </div>
-
-      </div>
+      <p>Welcome to Student Study Planner 🎉</p>
 
     </div>
   );

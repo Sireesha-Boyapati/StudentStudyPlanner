@@ -15,7 +15,10 @@ function Login() {
         password,
       });
 
-      alert(response.data.message);
+      localStorage.setItem("token", response.data.token);
+      alert("Login Successful");
+      navigate("/dashboard");
+
     } catch (error) {
       console.error(error);
 
